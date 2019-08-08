@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.top-content {
+    background-color: #333;
+    padding: 10px;
+    border-style: solid;
+    border-width: 0 0 5px 0;
+    border-color: #ffa500;
+    align-content: center;
+}
+
+.laranja {
+    color: #ffa500;
+    margin: 0;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+.menu > .item {
+    color: white;
+    align-self: center;
+    padding: 8px;
+    margin: 0 5px 0 0;
+    border-radius: 10px;
+}
+
+.menu > .item:hover {
+    background-color: #ffa500;
+    color: black;
+    cursor: pointer;
+}
+
+.content {
+    margin: 10px;
+}
