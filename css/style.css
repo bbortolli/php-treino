@@ -51,15 +51,21 @@ main {
 
 .content-manage {
     margin: 20px 10px;
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    align-items: center;
 }
 
 .add {
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     
+}
+
+.addBtn {
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 50%;
 }
 
 .separate {
@@ -68,12 +74,17 @@ main {
     background-color: black;
 }
 
+.contador {
+    padding: 10px 5px;
+    align-self: center;
+}
+
 .fa-plus-circle {
     color: green;
 }
 
 .content-items {
-    margin: 50px 550px;
+    margin: 50px 350px;
 }
 
 .input-manage {

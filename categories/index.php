@@ -17,7 +17,7 @@
 			
 		</div>
 		<div>
-			<button type="submit" class="btn btn-primary">Salvar</button>
+			<button type="submit" class="addBtn"><i class="fas fa-plus"></i></button>
 		</div>
 	</form>
 </div>

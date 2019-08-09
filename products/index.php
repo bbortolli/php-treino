@@ -16,11 +16,12 @@
 			<input type="number" class="input-manage" placeholder="Preço" step="0.01" min="0.1" name="product['preco']">
 		</div>
 		<div>
-			<button type="submit" class="btn btn-primary">Salvar</button>
+			<button type="submit" class="addBtn"><i class="fas fa-plus"></i></button>
 		</div>
 	</form>
 </div>
 <div class="separate"></div>
+<div class="contador">Foram encontrados um total de <?= count($productlist)?> registros.</div>
 <div class="content-items">
 <table class="table table-hover">
 <thead>
