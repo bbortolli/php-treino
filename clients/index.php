@@ -22,7 +22,7 @@
 	</form>
 </div>
 <div class="separate"></div>
-<div class="contador">Foram encontrados um total de <?= count($productlist)?> registros.</div>
+<div class="contador">Foram encontrados um total de <?= count($clientList)?> registros.</div>
 <div class="content-items">
 <table class="table table-hover">
 <thead>
