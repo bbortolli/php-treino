@@ -1,6 +1,6 @@
 <?php	    
 	require_once('controller.php');	    
-	$clientList = getAllCategories();
+	$categoryList = getAllCategories();
 	addCategory();
 ?>
 
@@ -22,6 +22,7 @@
 	</form>
 </div>
 <div class="separate"></div>
+<div class="contador">Foram encontrados um total de <?= count($productlist)?> registros.</div>
 <div class="content-items">
 <table class="table table-hover">
 <thead>
@@ -33,12 +34,12 @@
 	</tr>
 </thead>
 <tbody>	
-<?php if ($clientList) : ?>	
-<?php foreach ($clientList as $client) : ?>
+<?php if ($categoryList) : ?>	
+<?php foreach ($categoryList as $category) : ?>
 	<tr>
-		<td><?= $client['_id']; ?></td>
-		<td><?= $client['nome']; ?></td>
-		<td><?= $client['email']; ?></td>
+		<td><?= $category['_id']; ?></td>
+		<td><?= $category['nome']; ?></td>
+		<td><?= $category['descricao']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
 			<i class="far fa-trash-alt"></i>
