@@ -13,6 +13,12 @@ function addClient() {
     if (!empty($_POST['client'])) {
         $client = $_POST['client'];
         save('cliente', $client);
-        header('location: /');
+        header('location: /clients');
     }
+}
+
+function deleteClient($id = null) {
+
+    $product = remove('cliente', $id);
+    header('location: /clients');
 }

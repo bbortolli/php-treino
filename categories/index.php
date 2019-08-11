@@ -22,6 +22,7 @@
 	</form>
 </div>
 <div class="separate"></div>
+<h1 class="text-center">CATEGORIES</h1>
 <div class="contador">Foram encontrados um total de <?= count($categoryList)?> registros.</div>
 <div class="content-items">
 <table class="table table-hover">
@@ -42,12 +43,12 @@
 		<td><?= $category['descricao']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
-			<i class="far fa-trash-alt"></i>
+			<a id="deleteBtn" href="#" data="<?= $category['_id'];?>">
+				<i class="far fa-trash-alt"></i>
+			</a>
 		</td>
 	</tr>
 <?php endforeach; ?>
-<?php else : ?>
-	<span>Nada foi encontrado!</span>
 <?php endif; ?>
 </tbody>
 </table>

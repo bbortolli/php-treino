@@ -120,3 +120,27 @@ function save($table = null, $data = null) {
   
 	close_database($database);
   }
+
+function remove($table = null, $id = null) {
+
+	$database = open_database();
+  	  
+	try {
+		if($id && $table) {
+
+			$sql = "DELETE FROM " . $table . " WHERE _id = " . $id;
+			$database->query($sql);
+	
+			if ($result = $database->query($sql)) {  
+				$_SESSION['message'] = 'Registro removido com sucesso.';
+				$_SESSION['type'] = 'success';
+			}
+		}
+	} catch (Exception $e) { 
+	
+	  $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
+	  $_SESSION['type'] = 'danger';
+	} 
+  
+	close_database($database);
+} 

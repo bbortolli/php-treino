@@ -21,6 +21,7 @@
 	</form>
 </div>
 <div class="separate"></div>
+<h1 class="text-center">PRODUCTS</h1>
 <div class="contador">Foram encontrados um total de <?= count($productlist)?> registros.</div>
 <div class="content-items">
 <table class="table table-hover">
@@ -36,17 +37,17 @@
 <?php if ($productlist) : ?>	
 <?php foreach ($productlist as $product) : ?>
 	<tr>
-		<td><?= $product['_id']; ?></td>
+		<td class="_id"><?= $product['_id']; ?></td>
 		<td><?= $product['nome']; ?></td>
 		<td><?= $product['preco']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
-			<i class="far fa-trash-alt"></i>
+			<a id="deleteBtn" href="#" data="<?= $product['_id'];?>">
+				<i class="far fa-trash-alt"></i>
+			</a>
 		</td>
 	</tr>
 <?php endforeach; ?>
-<?php else : ?>
-	<span>Nada foi encontrado!</span>
 <?php endif; ?>
 </tbody>
 </table>

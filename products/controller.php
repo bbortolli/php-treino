@@ -13,6 +13,12 @@ function addProduct() {
     if (!empty($_POST['product'])) {
         $product = $_POST['product'];
         save('produto', $product);
-        header('location: /');
+        header('location: /products');
     }
+}
+
+function deleteProduct($id = null) {
+
+    $product = remove('produto', $id);
+    header('location: /products');
 }
