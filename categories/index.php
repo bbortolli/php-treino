@@ -13,8 +13,6 @@
 	<form class="add" action="index.php" method="post">
 		<div class="entrydata">
 			<input type="text" maxlength="32" class="input-manage" placeholder="Nome" name="category['nome']">
-			<input type="text" class="input-manage" placeholder="Descricao" name="category['descricao']">
-			
 		</div>
 		<div>
 			<button type="submit" class="addBtn"><i class="fas fa-plus"></i></button>
@@ -30,7 +28,6 @@
 	<tr>
 		<th>ID</th>
 		<th width="30%">Nome</th>
-		<th width="50%">Descrição</th>
 		<th>Opcoes</th>
 	</tr>
 </thead>
@@ -40,7 +37,6 @@
 	<tr>
 		<td><?= $category['_id']; ?></td>
 		<td><?= $category['nome']; ?></td>
-		<td><?= $category['descricao']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
 			<a id="deleteBtn" href="#" data="<?= $category['_id'];?>">

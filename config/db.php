@@ -52,6 +52,43 @@ function find( $table = null, $id = null ) {
 	return $found;
 }
 
+/*function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {
+  
+	$database = open_database();
+	$found = null;
+
+	try {
+	  if ($Fid) {
+			$sql = "SELECT * FROM " . $firstTable . ', ' . $secondTable . " WHERE " . $firstTable ".id = " . $secondTable . ".id AND " . $firstTable . ".id =" . $Fid;
+		}
+		else {
+			$sql = "SELECT * FROM " . $firstTable . ', ' . $secondTable . " WHERE " . $firstTable ".id = " . $secondTable . "id"
+		}
+
+	    $result = $database->query($sql);
+	    
+	    if ($result->num_rows > 0) {
+	      $found = $result->fetch_assoc();
+	    }
+	    
+	  } else {
+	    
+	    $sql = "SELECT * FROM " . $table;
+	    $result = $database->query($sql);
+	    
+	    if ($result->num_rows > 0) {
+	      $found = $result->fetch_all(MYSQLI_ASSOC);
+	    }
+	  }
+	} catch (Exception $e) {
+	  $_SESSION['message'] = $e->GetMessage();
+	  $_SESSION['type'] = 'danger';
+  }
+	
+	close_database($database);
+	return $found;
+}*/
+
 function findAll($table){
 	return find($table);
 }

@@ -17,8 +17,8 @@
         <div class="row top-content">
             <a class="home" href="../"><h3 class="laranja">CRUD Treino</h3></a>
             <ul class="menu">
-                <li class="item" onClick="myFunction()">
-                    <a id="cliente" href="/clients">CLIENTES</a>
+                <li class="item">
+                    <a href="/clients">CLIENTES</a>
                 </li>
                 <li class="item">
                     <a href="/products">PRODUTOS</a>
@@ -29,9 +29,4 @@
             </ul>
         </div>
     </div>
-    <script>
-        function myFunction() {
-            document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
-        }
-    </script>
     <main>
