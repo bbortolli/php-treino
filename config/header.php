@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid">
         <div class="row top-content">
-            <h3 class="laranja">CRUD Treino</h3>
+            <a class="home" href="../"><h3 class="laranja">CRUD Treino</h3></a>
             <ul class="menu">
                 <li class="item" onClick="myFunction()">
                     <a id="cliente" href="/clients">CLIENTES</a>

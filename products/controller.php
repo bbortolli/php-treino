@@ -1,12 +1,7 @@
 <?php
 
-require_once('../config.php');
-require_once(DBAPI);
-
-function getAllProducts() {
-    $products = findAll('produto');
-    return $products;
-}
+include_once('../config.php');
+include_once(DBAPI);
 
 function addProduct() {
 
@@ -17,8 +12,24 @@ function addProduct() {
     }
 }
 
+function updateProduct($id = 0, $product = null) {
+
+    if ( ($id !== 0) && ($product !== null)) {
+            update('produto', $id, $product);
+            header('location: /products');
+    }
+}
+
+function getAllProducts() {
+    
+    $products = findAll('produto');
+    return $products;
+}
+
 function deleteProduct($id = null) {
 
-    $product = remove('produto', $id);
-    header('location: /products');
+    if (filter_var($id, FILTER_VALIDATE_INT)) {
+        $product = remove('produto', $id);
+        header('location: /products');
+    }
 }

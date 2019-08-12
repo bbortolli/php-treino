@@ -49,6 +49,43 @@ main {
     cursor: pointer;
 }
 
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 30px;
+}
+
+.dash-number {
+    display: flex;
+    flex-direction: column;
+    background-color: #ccc;
+    margin: 10px;
+    padding: 20px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 4px;
+    transition: transform .4s;
+}
+
+.dash-number:hover {
+    background-color: #aaa;
+    transform: scale(1.2);
+}
+
+.number-data {
+    text-align: center;
+    color: black;
+    font-size: 1.25rem;
+    cursor: default;
+}
+
 .content-manage {
     margin: 20px 10px;
 }

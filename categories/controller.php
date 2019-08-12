@@ -1,7 +1,7 @@
 <?php
 
-require_once('../config.php');
-require_once(DBAPI);
+include_once('../config.php');
+include_once(DBAPI);
 
 function getAllCategories() {
     $categories = findAll('categoria');
