@@ -52,14 +52,14 @@ function find( $table = null, $id = null ) {
 	return $found;
 }
 
-/*function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {
+function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {
   
 	$database = open_database();
 	$found = null;
 
 	try {
 	  if ($Fid) {
-			$sql = "SELECT * FROM " . $firstTable . ', ' . $secondTable . " WHERE " . $firstTable ".id = " . $secondTable . ".id AND " . $firstTable . ".id =" . $Fid;
+			$sql = "SELECT * FROM " . $firstTable . " ,"  . $secondTable . " WHERE " . $firstTable ".id = " . $Fid " AND " . $firstTable ".id = " . $secondTable . ".id;";
 		}
 		else {
 			$sql = "SELECT * FROM " . $firstTable . ', ' . $secondTable . " WHERE " . $firstTable ".id = " . $secondTable . "id"
@@ -87,7 +87,7 @@ function find( $table = null, $id = null ) {
 	
 	close_database($database);
 	return $found;
-}*/
+}
 
 function findAll($table){
 	return find($table);
