@@ -8,6 +8,10 @@ main {
     flex-direction: column;
 }
 
+h1 {
+    margin-top: 10px;
+}
+
 .top-content {
     background-color: #333;
     padding: 10px;
@@ -35,19 +39,48 @@ main {
     margin: 0 5px 0 0;
 }
 
-.item a {
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+  }
+
+.dropbtn {
+    background-color: #333;
     color: white;
-    text-decoration: none;
-    outline: none;
+    padding: 8;
+    border: none;
+    cursor: pointer;
+    width: 120px;
     padding: 8px;
-    font-weight: 500;
-    border-radius: 2px;
 }
 
-.item a:hover {
+.drop-content {
+    display: none;
+    position: absolute;
     background-color: #ffa500;
-    color: black;
-    cursor: pointer;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+.drop-content a {
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.drop-content a:hover {
+    background-color: #F4830E;
+}
+
+.dropdown:hover .drop-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ffa500;
 }
 
 .main {
@@ -91,7 +124,21 @@ main {
     margin: 20px 10px;
 }
 
+.entrydata {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
 .add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.add-cat {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -110,7 +157,6 @@ main {
     height: 1.5px;
     width: 100%;
     background-color: black;
-    margin-bottom: 10px;
 }
 
 .contador {
@@ -126,10 +172,6 @@ main {
     margin: 50px 250px;
 }
 
-.add {
-    margin-left: 20px;
-}
-
 .category {
     padding: 6px 5px;
     font-size: 1.1rem;
@@ -142,6 +184,14 @@ main {
     border-style: solid;
     border-width: 1px;
     font-size: 1.1em;
+}
+
+input, select {
+    margin-bottom: 10px;
+}
+
+.name-cat {
+    margin: 0 5px;
 }
 
 .input-manage::placeholder {

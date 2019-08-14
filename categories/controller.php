@@ -4,7 +4,7 @@ include_once('../config.php');
 include_once(DBAPI);
 
 function getAllCategories() {
-    $categories = findAll('categoria');
+    $categories = findAll('category');
     return $categories;
 }
 
@@ -12,13 +12,13 @@ function addCategory() {
 
     if (!empty($_POST['category'])) {
         $category = $_POST['category'];
-        save('categoria', $category);
+        save('category', $category);
         header('location: /categories');
     }
 }
 
 function deleteCategory($id = null) {
 
-    $product = remove('categoria', $id);
+    $product = remove('category', $id);
     header('location: /categories');
 }

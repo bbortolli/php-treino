@@ -18,13 +18,30 @@
             <a class="home" href="../"><h3 class="laranja">CRUD Treino</h3></a>
             <ul class="menu">
                 <li class="item">
-                    <a href="/clients">CLIENTES</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Account</button>
+                        <div class="drop-content">
+                            <a href="/accounts/index.php">Details</a>
+                            <a href="/transactions/index.php">Transactions</a>
+                            <a href="/accounts/add.php">Add new</a>
+                            <a href="/accounts/all.php">View all</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="item">
-                    <a href="/products">PRODUTOS</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Card</button>
+                        <div class="drop-content">
+                            <a href="/entries/index.php">Entries</a>
+                            <a href="/cards/add.php">Add new</a>
+                            <a href="/cards/all.php">View all</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="item">
-                    <a href="/categories">CATEGORIAS</a>
+                    <div class="dropdown">
+                        <a href="/categories"><button class="dropbtn">Category</button></a>
+                    </div>
                 </li>
             </ul>
         </div>
