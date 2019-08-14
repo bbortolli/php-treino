@@ -52,6 +52,10 @@ function find( $table = null, $id = null ) {
 	return $found;
 }
 
+function findAll($table){
+	return find($table);
+}
+
 function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {
   
 	$database = open_database();
@@ -80,10 +84,6 @@ function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {
 	
 	close_database($database);
 	return $found;
-}
-
-function findAll($table){
-	return find($table);
 }
 
 function save($table = null, $data = null) {
