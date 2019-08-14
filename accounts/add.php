@@ -14,9 +14,10 @@
 <div class="content-manage">
 	<form class="add" action="add.php" method="post">
 		<div class="entrydata">
-            <input type="text" class="input-manage" placeholder="Nome da conta" name="account['name']">
+            <input type="text" class="input-manage" placeholder="Nome da conta" maxlength=12 name="account['name']">
             <input type="number" maxlength="32" class="input-manage" placeholder="Saldo inicial" name="account['balance']">
-            <input type="text" maxlength="32" class="input-manage" placeholder="Descricao" name="account['description']">
+			<input type="text" maxlength="32" class="input-manage" placeholder="Descricao" name="account['description']">
+			<input type="color" name="account['color']" value="#ffffff">
 		</div>
 		<div class="add">
 			<button type="submit" class="addBtn"><i class="fas fa-plus"></i></button>

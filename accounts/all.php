@@ -10,37 +10,29 @@
 
 <h1 class="text-center">Accounts</h1>
 <div class="separate"></div>
-<div class="contador">Found <?= count($accountList)?> entries...</div>
 <div class="content-items">
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>ID</th>
-		<th>Nome</th>
-		<th>Saldo</th>
-		<th>Descricao</th>
-		<th>Opcoes</th>
-	</tr>
-</thead>
-<tbody>	
+
 <?php if ($accountList) : ?>	
 <?php foreach ($accountList as $acc) : ?>
-	<tr>
-		<td><?= $acc['_id']; ?></td>
-		<td><?= $acc['name']; ?></td>
-		<td><?= $acc['balance']; ?></td>
-		<td><?= $acc['description']; ?></td>
-		<td class="text-right">
-			<i class="far fa-edit">
-			<a id="deleteBtn" data="<?= $acc['_id'];?>">
-				<i class="far fa-trash-alt"></i>
-			</a>
-		</td>
-	</tr>
+	<div class="account" style="background-image: linear-gradient(to bottom, white, <?=$acc['color'] ?>);">
+		<div class="top">
+			<div>
+				<i class="far fa-money-bill-alt"></i>
+				<span><?=$acc['name'] ?></span>
+			</div>
+			<div class="acc-opt">
+				<i class="far fa-edit"></i>
+				<a id="deleteBtn" href="#" data="<?= $acc['_id'];?>" accname="<?=$acc['name'];?>">
+					<i class="far fa-trash-alt"></i>
+				</a>
+			</div>
+		</div>
+		<div>
+			<span>Saldo atual: <?=$acc['balance'] ?></span>
+		</div>
+	</div>
 <?php endforeach; ?>
 <?php endif; ?>
-</tbody>
-</table>
 <?php else : ?>
 	<div class="alert alert-danger" role="alert">
 		<p><strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!</p>

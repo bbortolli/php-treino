@@ -12,9 +12,10 @@
 <?php if ($db) : ?>
 
 <h1 class="text-center">Transactions</h1>
-<a href="/transactions/add.php"><i class="fas fa-plus"></i></a>
 <div class="separate"></div>
-<div class="contador">Found <?= count($transactionList)?> entries...</div>
+<div class="add-cat-btn">
+	<a href="/transactions/add.php">New</a>
+</div>
 <div class="content-items">
 <table class="table table-hover">
 <thead>

@@ -30,9 +30,8 @@
                 <option value="1">Despesa</option>
             </select>
             
-            <input type="date" class="input-manage" placeholder="Data" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="transaction['date']">
-            <input type="text" maxlength="32" class="input-manage" placeholder="Nome" name="transaction['nome']">
-            <input type="text" maxlength="32" class="input-manage" placeholder="Nome" name="transaction['nome']">
+            
+            <input type="text" maxlength="32" class="input-manage" placeholder="Nome" name="transaction['description']">
 		</div>
 		<div>
 			<select class="category" name="transaction['category']" >

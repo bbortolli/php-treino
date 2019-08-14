@@ -11,7 +11,10 @@ function getAllAccounts() {
 function addAccount() {
 
     if (!empty($_POST['account'])) {
-        $account = $_POST['account']; 
+        $account = $_POST['account'];
+        if (empty($account["'balance'"])) {
+            $account["'balance'"] = 0.0;
+        }
         save('account', $account);
         header('location: /accounts/all.php');
     }
@@ -20,5 +23,5 @@ function addAccount() {
 function deleteAccount($id = null) {
 
     $account = remove('account', $id);
-    header('location: /accounts');
+    header('location: /accounts/all.php');
 }
