@@ -3,8 +3,9 @@
 include_once('../config.php');
 include_once(DBAPI);
 
-function getAllAccounts() {
-    $accounts = findAll('account');
+function getAllAccounts($params = '') {
+    
+    $accounts = findAll('account', $params);
     return $accounts;
 }
 

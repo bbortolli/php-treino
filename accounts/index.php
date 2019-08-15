@@ -32,7 +32,7 @@
 		<td><?= $acc['description']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
-			<a id="deleteBtn" href="#" data="<?= $acc['_id'];?>">
+			<a id="deleteBtn" href="#" data="<?= $acc['_id'];?>" ident="<?= $acc['name'];?>">
 				<i class="far fa-trash-alt"></i>
 			</a>
 		</td>

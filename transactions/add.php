@@ -16,34 +16,29 @@
 <div class="separate"></div>
 
 <div class="content-manage">
-	<form class="add" action="index.php" method="post">
+	<form class="add" action="add.php" method="post">
 		<div class="entrydata">
-            <select class="category" name="transaction['acc_id']" >
+            <select name="transaction['acc_id']">
                 <option value="" disabled selected>Conta</option>
                 <?php foreach ($accountList as $acc) : ?>
-					<option value="<?=$acc['acc_id']?>"> <?=$acc['name']?> </option>
+					<option value="<?=$acc['_id']?>"> <?=$acc['name']?> </option>
 				<?php endforeach; ?>
             </select>
 			<input type="number" class="input-manage" placeholder="Preço" step="0.01" min="0.1" name="transaction['value']">
-            <select class="category" name="transaction['type']" >
-				<option value="0"  selected>Receita</option>
-                <option value="1">Despesa</option>
+            <select name="transaction['type']" >
+				<option value="in"  selected>Receita</option>
+                <option value="out">Despesa</option>
             </select>
-            
-            
+            <input type="date" name="transaction['date']" class="datein">
             <input type="text" maxlength="32" class="input-manage" placeholder="Nome" name="transaction['description']">
 		</div>
-		<div>
-			<select class="category" name="transaction['category']" >
-				<option value="" disabled selected>Categoria</option>
-				<?php foreach ($categoryList as $cat) : ?>
-					<option value="<?=$cat['name']?>"> <?=$cat['name']?> </option>
-				<?php endforeach; ?>
-			</select>
-		</div>
-		<div class="add">
-			<button type="submit" class="addBtn"><i class="fas fa-plus"></i></button>
-		</div>
+		<select name="transaction['category']" >
+			<option value="" disabled selected>Categoria</option>
+			<?php foreach ($categoryList as $cat) : ?>
+				<option value="<?=$cat['name']?>"> <?=$cat['name']?> </option>
+			<?php endforeach; ?>
+		</select>
+		<button type="submit" class="addBtn"><i class="fas fa-plus"></i></button>
 	</form>
 </div>
 

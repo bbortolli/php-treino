@@ -20,14 +20,14 @@ function close_database($conn) {
 	}
 }
 
-function find( $table = null, $id = null ) {
+function find( $table = null, $id = null, $params = '') {
   
 	$database = open_database();
 	$found = null;
 
 	try {
 	  if ($id) {
-	    $sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
+		$sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {
@@ -36,7 +36,7 @@ function find( $table = null, $id = null ) {
 	    
 	  } else {
 	    
-	    $sql = "SELECT * FROM " . $table;
+		$sql = "SELECT * FROM " . $table . $params;
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {
@@ -52,8 +52,8 @@ function find( $table = null, $id = null ) {
 	return $found;
 }
 
-function findAll($table){
-	return find($table);
+function findAll($table, $params){
+	return find($table, null, $params);
 }
 
 function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {

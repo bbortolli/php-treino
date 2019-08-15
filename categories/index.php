@@ -39,7 +39,7 @@
 		<td><?= $category['name']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
-			<a id="deleteBtn" href="#" data="<?= $category['_id'];?>">
+			<a id="deleteBtn" href="#" data="<?= $category['_id'];?>" ident="<?= $category['name'];?>">
 				<i class="far fa-trash-alt"></i>
 			</a>
 		</td>

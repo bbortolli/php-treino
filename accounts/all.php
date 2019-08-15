@@ -14,7 +14,7 @@
 
 <?php if ($accountList) : ?>	
 <?php foreach ($accountList as $acc) : ?>
-	<div class="account" style="background-image: linear-gradient(to bottom, white, <?=$acc['color'] ?>);">
+	<div class="account" style="background-image: linear-gradient(to bottom right, white, white, <?=$acc['color'] ?>);">
 		<div class="top">
 			<div>
 				<i class="far fa-money-bill-alt"></i>

@@ -7,6 +7,7 @@ function addTransaction() {
 
     if (!empty($_POST['transaction'])) {
         $transaction = $_POST['transaction'];
+        print_r($transaction);
         save('transaction', $transaction);
         /*
         if ($transaction["'type'"] === 0) {
@@ -16,7 +17,7 @@ function addTransaction() {
             //upadte('account'); subtrai da conta
         }
         */
-        header('location: /transaction');
+        //header('location: /transactions/add.php');
     }
 }
 
@@ -28,9 +29,9 @@ function updateTransaction($id = 0, $transaction = null) {
     }
 }
 
-function getAllTransactions() {
-    
-    $transactions = findAll('transaction');
+function getAllTransactions($params = '') {
+
+    $transactions = findAll('transaction', $params);
     return $transactions;
 }
 
@@ -38,6 +39,6 @@ function deleteTransaction($id = null) {
 
     if (filter_var($id, FILTER_VALIDATE_INT)) {
         $product = remove('transaction', $id);
-        header('location: /transaction');
+        header('location: /transactions');
     }
 }

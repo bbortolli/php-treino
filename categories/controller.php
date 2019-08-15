@@ -3,8 +3,9 @@
 include_once('../config.php');
 include_once(DBAPI);
 
-function getAllCategories() {
-    $categories = findAll('category');
+function getAllCategories($params = '') {
+    
+    $categories = findAll('category', $params);
     return $categories;
 }
 
