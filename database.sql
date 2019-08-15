@@ -45,3 +45,21 @@ CREATE TABLE crudtreino.entry (
     PRIMARY KEY(_id),
     FOREIGN KEY(card_id) REFERENCES card(_id)
 );
+
+CREATE TRIGGER `updateBalanceAdd` AFTER INSERT ON `transaction`
+ FOR EACH ROW IF NEW.type = "in" THEN
+	UPDATE crudtreino.account SET balance = balance + NEW.value  
+    WHERE NEW.acc_id = account._id;
+ELSE
+	UPDATE crudtreino.account SET balance = balance - NEW.value
+     WHERE NEW.acc_id = account._id;
+END IF
+
+CREATE TRIGGER `updateBalanceRemove` AFTER DELETE ON `transaction`
+ FOR EACH ROW IF OLD.type = "in" THEN
+	UPDATE crudtreino.account SET balance = balance - OLD.value  
+    WHERE OLD.acc_id = account._id;
+ELSE
+	UPDATE crudtreino.account SET balance = balance + OLD.value
+     WHERE OLD.acc_id = account._id;
+END IF
