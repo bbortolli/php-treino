@@ -98,7 +98,7 @@
 		<td><?= $t['description']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
-			<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-customer="<?= $moneyFormat;?>">
+			<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
 				<i class="far fa-trash-alt"></i>
 			</a>
 		</td>

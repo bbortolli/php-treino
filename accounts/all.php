@@ -6,6 +6,23 @@
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
 
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir este item?
+      </div>
+      <div class="modal-footer">
+        <a id="confirm" class="btn btn-primary" href="#">Sim</a>
+        <a id="cancel" class="btn btn-default" data-dismiss="modal">N&atilde;o</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php if ($db) : ?>
 
 <h1 class="text-center">Accounts</h1>
@@ -22,7 +39,7 @@
 			</div>
 			<div class="acc-opt">
 				<i class="far fa-edit"></i>
-				<a id="deleteBtn" href="#" data="<?= $acc['_id'];?>" accname="<?=$acc['name'];?>">
+				<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$acc['_id'] ?>" data-ident="<?= $acc['name'];?>">
 					<i class="far fa-trash-alt"></i>
 				</a>
 			</div>
