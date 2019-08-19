@@ -32,8 +32,8 @@
 
 <?php if ($accountList) : ?>	
 <?php foreach ($accountList as $acc) : ?>
-<?php $last = getLastTransaction($acc['_id']);?>
-	<div class="account" style="background-image: linear-gradient(to bottom right, white, white, <?=$acc['color'] ?>);">
+<?php $last = getLastTransaction($acc['_id']); list($r, $g, $b) = sscanf($acc['color'], "#%02x%02x%02x");?>
+	<div class="account" style="background-color: rgba(<?= $r?>, <?= $g?>, <?= $b?>, 0.15)">
 		<div class="top">
 			<div>
 				<i class="far fa-money-bill-alt"></i>
@@ -52,7 +52,7 @@
 			<span>Ultima transação:</span>
 			<ul>
 				<li><span>Data: <?=$last['date'];?></span></li>
-				<li><span>Valor: R$ <?=number_format($last['value'], 2, ',', '.');?></span></li>
+				<li><span style="color:<?= $last['type'] == in ? green : red ; ?>">Valor: R$ <?=number_format($last['value'], 2, ',', '.');?></span></li>
 			</ul>
 		</div>
 	</div>

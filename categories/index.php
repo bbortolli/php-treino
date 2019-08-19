@@ -7,6 +7,23 @@
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
 
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir este item?
+      </div>
+      <div class="modal-footer">
+        <a id="confirm" class="btn btn-primary" href="#">Sim</a>
+        <a id="cancel" class="btn btn-default" data-dismiss="modal">N&atilde;o</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php if ($db) : ?>
 
 <div class="content-manage">
@@ -39,7 +56,7 @@
 		<td><?= $category['name']; ?></td>
 		<td class="text-right">
 			<i class="far fa-edit">
-			<a id="deleteBtn" href="#" data="<?= $category['_id'];?>" ident="<?= $category['name'];?>">
+			<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$category['_id'] ?>" data-ident="<?= $category['name'];?>">
 				<i class="far fa-trash-alt"></i>
 			</a>
 		</td>

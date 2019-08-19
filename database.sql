@@ -6,6 +6,7 @@ CREATE TABLE crudtreino.account (
     balance DOUBLE not null DEFAULT 0,
     color VARCHAR(8),
     description VARCHAR(255),
+    created_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(_id)
 
 );
