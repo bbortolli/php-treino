@@ -31,3 +31,25 @@ function deleteTransaction($id = null) {
         header('location: /transactions');
     }
 }
+
+function getLastTransaction($id = null) {
+
+    $database = open_database();
+    $found = null;
+    
+    try{
+        if($id) {
+            $sql = "SELECT value, date FROM account, transaction WHERE account._id = " . $id . " AND account._id = transaction.acc_id ORDER BY transaction.date DESC LIMIT 1";
+            $result = $database->query($sql);
+            if ($result->num_rows > 0) {
+                $found = $result->fetch_assoc();
+            }
+        }   
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->GetMessage();
+	    $_SESSION['type'] = 'danger';
+    }
+
+    close_database($database);
+	return $found;
+}

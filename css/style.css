@@ -184,7 +184,7 @@ tr.out, tr.out:hover td {
     margin: 10px;
     flex-wrap: wrap;
     width: calc((100% / 4) - 30px);
-    height: 150px;
+    height: 180px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
@@ -193,6 +193,17 @@ tr.out, tr.out:hover td {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.account span {
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+.acc-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contador {

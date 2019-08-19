@@ -1,5 +1,6 @@
 <?php	    
 	require_once('controller.php');	    
+	require_once('../transactions/controller.php');	 
 	$accountList = getAllAccounts();
 ?>
 
@@ -31,11 +32,12 @@
 
 <?php if ($accountList) : ?>	
 <?php foreach ($accountList as $acc) : ?>
+<?php $last = getLastTransaction($acc['_id']);?>
 	<div class="account" style="background-image: linear-gradient(to bottom right, white, white, <?=$acc['color'] ?>);">
 		<div class="top">
 			<div>
 				<i class="far fa-money-bill-alt"></i>
-				<span><?=$acc['name'] ?></span>
+				<span><?= strtoupper($acc['name']) ?></span>
 			</div>
 			<div class="acc-opt">
 				<i class="far fa-edit"></i>
@@ -44,8 +46,14 @@
 				</a>
 			</div>
 		</div>
-		<div>
-			<span>Saldo atual: <?=$acc['balance'] ?></span>
+		<div class="acc-info">
+			<span style="color:<?= $acc['balance'] >= 0 ? green : red ; ?>">Saldo atual: R$ <?=number_format($acc['balance'], 2, ',', '.');?></span>
+			<span>Data criação: <?=$acc['created_date'] ?></span>
+			<span>Ultima transação:</span>
+			<ul>
+				<li><span>Data: <?=$last['date'];?></span></li>
+				<li><span>Valor: R$ <?=number_format($last['value'], 2, ',', '.');?></span></li>
+			</ul>
 		</div>
 	</div>
 <?php endforeach; ?>
