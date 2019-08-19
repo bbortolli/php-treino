@@ -1,50 +1,29 @@
-var currentCallback;
-
-// override default browser alert
-window.alert = function(msg, callback){
-  $('.warndata').text('Data: '+msg[0]);
-  $('.warnvalue').text('Value: '+msg[1]);
-  $('.warndesc').text('Description: '+msg[2]);
-  $('.delete-warn').css('animation', 'fadeIn 0.3s linear');
-  $('.delete-warn').css('display', 'inline');
-  setTimeout(function(){
-    $('.delete-warn').css('animation', 'none');
-  }, 300);
-  currentCallback = callback;
-}
-
 $(document).ready(function() {
-
-    $('.confirmBtn').click(function(){
-        $('.delete-warn').css('animation', 'fadeOut 0.3s linear');
-        setTimeout(function(){
-         $('.delete-warn').css('animation', 'none');
-            $('.delete-warn').css('display', 'none');
-        }, 300);
-        currentCallback();
+    $('#delete-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        var value = button.data('customer');
+        
+        var modal = $(this);
+        modal.find('.modal-title').text('Excluir transação de ' + value + ' R$');
+        modal.find('#confirm').attr('href', 'delete.php?id=' + id);
     })
 
-    $('.cancelBtn').click(function(){
-        $('.delete-warn').css('animation', 'fadeOut 0.3s linear');
-        setTimeout(function(){
-         $('.delete-warn').css('animation', 'none');
-            $('.delete-warn').css('display', 'none');
-        }, 300);
-        currentCallback();
-    })
-    
-    $('#deleteBtn').on('click', function(){
-        var warndata = $(this).attr('idata')
-        var warnvalue = $(this).attr('ival')
-        var warndesc = $(this).attr('idesc')
-        alert([warndata, warnvalue, warndesc], function(){
-          console.log("Callback executed");
-        })
+    $('#add-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
     });
 
-    setTimeout(function(){
-        alert('', function(){
-            console.log("Callback executed");
+    $('.cadd').on('click', function() {
+        let acc_id = 'acc_id=' + $("[name='acc_id']").val()
+        let value = '&value=' + $("[name='value']").val()
+        let type = '&type=' + $("[name='type']").val()
+        let date = '&date=' + $("[name='date']").val()
+        let description = '&description=' + $("[name='description']").val()
+        let category = '&category=' + $("[name='category']").val()
+        let params = acc_id+value+type+date+description+category
+        console.log(params)
+        $.post("add.php", params, function( data ) {
+            window.location.replace('/transactions')
         });
-    }, 500);
+    })
 });

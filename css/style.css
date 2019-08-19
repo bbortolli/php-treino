@@ -16,37 +16,6 @@ p {
     margin: 0 0 5px 0;
 }
 
-.delete-warn {
-    display: none;
-    position: absolute;
-    top: calc((100% / 2) - 75px);
-    left: calc((100% / 2) - 100px);
-    border: solid 2px orangered;
-    background-color: #ccc;
-    padding: 10px;
-}
-
-.content-warn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    text-align: center;
-    font-weight: bold;
-}
-
-.confirmBtn, .cancelBtn {
-    border: solid 2px black;
-}
-
-.confirmBtn {
-    background-color: green;
-}
-
-.cancelBtn {
-    background-color: red;
-}
-
 .top-content {
     background-color: #333;
     padding: 10px;

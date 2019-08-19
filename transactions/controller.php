@@ -5,19 +5,8 @@ include_once(DBAPI);
 
 function addTransaction() {
 
-    if (!empty($_POST['transaction'])) {
-        $transaction = $_POST['transaction'];
-        print_r($transaction);
-        save('transaction', $transaction);
-        /*
-        if ($transaction["'type'"] === 0) {
-            //update('account'); soma na conta
-        }
-        else {
-            //upadte('account'); subtrai da conta
-        }
-        */
-        //header('location: /transactions/add.php');
+    if ( !empty($_POST) ) {
+        save('transaction', $_POST);
     }
 }
 
