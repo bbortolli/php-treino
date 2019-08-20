@@ -18,10 +18,36 @@ function updateTransaction($id = 0, $transaction = null) {
     }
 }
 
-function getAllTransactions($params = '') {
+function getAllTransactions() {
 
-    $transactions = findAll('transaction', $params);
+    $transactions = findAll('transaction');
     return $transactions;
+}
+
+function getAccTransactions() {
+
+    $database = open_database();
+    $found = null;
+
+    if (empty($_GET['id']) || !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
+        header('location: /accounts/index.php');
+        return 0;
+    }
+
+    try{
+        $sql = "SELECT * FROM transaction WHERE acc_id = " . $_GET['id'];
+        $result = $database->query($sql);
+        if ($result->num_rows > 0) {
+            $found = $result->fetch_all(MYSQLI_ASSOC);
+        }
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->GetMessage();
+	    $_SESSION['type'] = 'danger';
+    }
+
+    close_database($database);
+	return $found;
+
 }
 
 function deleteTransaction($id = null) {

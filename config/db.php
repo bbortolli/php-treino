@@ -20,14 +20,14 @@ function close_database($conn) {
 	}
 }
 
-function find( $table = null, $id = null, $params = '') {
+function find( $table = null, $id = null) {
   
 	$database = open_database();
 	$found = null;
 
 	try {
 	  if ($id) {
-		$sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
+		$sql = "SELECT * FROM " . $table . " WHERE _id = " . $id;
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {
@@ -36,7 +36,7 @@ function find( $table = null, $id = null, $params = '') {
 	    
 	  } else {
 	    
-		$sql = "SELECT * FROM " . $table . $params;
+		$sql = "SELECT * FROM " . $table;
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {
@@ -52,38 +52,8 @@ function find( $table = null, $id = null, $params = '') {
 	return $found;
 }
 
-function findAll($table, $params){
-	return find($table, null, $params);
-}
-
-function findWhere( $firstTable = null, $secondTable = null, $Fid = null) {
-  
-	$database = open_database();
-	$found = null;
-
-	try {
-		if ($Fid) {
-			$sql = "SELECT * FROM " . $firstTable . ", " . $secondTable . " WHERE " . $firstTable . ".id = " . $Fid . " AND " . $firstTable . ".id = " . $secondTable . ".id";
-			$result = $database->query($sql);
-	    	if ($result->num_rows > 0) {
-	        	$found = $result->fetch_assoc();
-	    	}
-		}
-		else {
-			$sql = "SELECT * FROM " . $firstTable . ", " . $secondTable . " WHERE " . $firstTable . ".id = " . $secondTable . "id";
-			$result = $database->query($sql);
-	    	if ($result->num_rows > 0) {
-	        	$found = $result->fetch_all(MYSQLI_ASSOC);
-	    	}
-		}
-	}
-	catch (Exception $e) {
-		$_SESSION['message'] = $e->GetMessage();
-	    $_SESSION['type'] = 'danger';
-	}
-	
-	close_database($database);
-	return $found;
+function findAll($table){
+	return find($table, null);
 }
 
 function save($table = null, $data = null) {

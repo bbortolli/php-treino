@@ -9,6 +9,18 @@ function getAllAccounts($params = '') {
     return $accounts;
 }
 
+function getAccount() {
+
+    if( !empty($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
+        $acc = find('account', $_GET['id']);
+        return $acc;
+    }
+    else {
+        header('location: /accounts/index.php');
+        return 0;
+    }
+}
+
 function addAccount() {
 
     if (!empty($_POST['account'])) {

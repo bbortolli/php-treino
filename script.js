@@ -6,7 +6,7 @@ $(document).ready(function() {
         
         var modal = $(this);
         modal.find('.modal-title').text('Excluir ' + value);
-        modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+        modal.find('#confirm').attr('href', '../transactions/delete.php?id=' + id);
     })
 
     $('#add-modal').on('show.bs.modal', function (event) {
@@ -14,6 +14,7 @@ $(document).ready(function() {
     });
 
     $('.cadd').on('click', function() {
+        let id = $("[name='acc_id']").val()
         let acc_id = 'acc_id=' + $("[name='acc_id']").val()
         let value = '&value=' + $("[name='value']").val()
         let type = '&type=' + $("[name='type']").val()
@@ -22,8 +23,8 @@ $(document).ready(function() {
         let category = '&category=' + $("[name='category']").val()
         let params = acc_id+value+type+date+description+category
         console.log(params)
-        $.post("add.php", params, function( data ) {
-            window.location.assign('/transactions')
+        $.post("../transactions/add.php", params, function( data ) {
+            window.location.assign('/accounts/view.php?id='+id)
         });
     })
 });

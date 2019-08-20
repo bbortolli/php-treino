@@ -22,10 +22,9 @@
                     <div class="dropdown">
                         <button class="dropbtn">Account</button>
                         <div class="drop-content">
-                            <a href="/accounts/index.php">Details</a>
                             <a href="/transactions/index.php">Transactions</a>
                             <a href="/accounts/add.php">Add new</a>
-                            <a href="/accounts/all.php">View all</a>
+                            <a href="/accounts/index.php">View all</a>
                         </div>
                     </div>
                 </li>
