@@ -63,12 +63,12 @@ $(document).ready(function() {
     var totalIn = 0;
     var totalOut = 0;
     $('td[class=inAux]').each(function (i, e) {
-        value = parseFloat($(this).html())
+        value = parseFloat($(this).html().replace(',',''))
         totalIn += value
         
     })
     $('td[class=outAux]').each(function (i, e) {
-        value = parseFloat($(this).html())
+        value = parseFloat($(this).html().replace(',',''))
         totalOut -= value
         
     })

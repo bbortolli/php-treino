@@ -53,9 +53,6 @@ function getInByCat() {
     try{
         $sql = "SELECT category as label, SUM(value) as y FROM transaction WHERE acc_id = " . $_GET['id'] . " AND type = 'in' GROUP BY category";
         $result = $database->query($sql);
-        $arq = fopen('ttt.txt', 'w');
-        fwrite($arq, $result);
-        fclose($arq);
         if ($result->num_rows > 0) {
             $found = $result->fetch_all(MYSQLI_ASSOC);
         }

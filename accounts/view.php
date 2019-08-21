@@ -90,7 +90,7 @@
 			<?php if ($t['type'] === 'in') : ?>	
 				<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
 				<tr class="<?=$t['type'];?>">
-					<td class="inAux"><?= $moneyFormat; ?></td>
+					<td class="inAux"><?=$moneyFormat?></td>
 					<td><?= $t['date']; ?></td>
 					<td><?= $t['category']; ?></td>
 					<td><?= $t['description']; ?></td>
@@ -120,7 +120,7 @@
 			<?php if ($t['type'] === 'out') : ?>	
 				<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
 				<tr class="<?=$t['type'];?>">
-					<td class="outAux"><?= $moneyFormat; ?></td>
+					<td class="outAux"><?=$moneyFormat?></td>
 					<td><?= $t['date']; ?></td>
 					<td><?= $t['category']; ?></td>
 					<td><?= $t['description']; ?></td>
