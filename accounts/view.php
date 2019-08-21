@@ -8,6 +8,8 @@
 	require_once('../categories/controller.php'); 
 	$transactionList = getAccTransactions();
 	$categoryList = getAllCategories();
+	$sumcategoryRec = getInByCat();
+	$sumcategoryDes = getOutByCat();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -43,16 +45,16 @@
 						<option selected value="<?=$account['_id']?>"> <?=$account['name']?> </option>
 				</select>
 				<input type="number" class="input-manage" placeholder="Preço" step="0.01" min="0.1" name="value">
-				<select name="type" >
-					<option value="in"  selected>Receita</option>
+				<select name="type">
+					<option value="in" selected>Receita</option>
 					<option value="out">Despesa</option>
 				</select>
 				<input type="date" name="date" class="datein">
 				<input type="text" maxlength="32" class="input-manage" placeholder="Nome" name="description">
 				<select name="category" >
-					<option value="Nenhuma" selected>Categoria</option>
+					<option class="select-cat" value="Nenhuma" selected>Categoria</option>
 					<?php foreach ($categoryList as $cat) : ?>
-						<option value="<?=$cat['name']?>"> <?=$cat['name']?> </option>
+						<option class="select-cat" value="<?=$cat['name']?>"><?=$cat['name']?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
@@ -87,7 +89,7 @@
 		<?php foreach ($transactionList as $t) : ?>
 			<?php if ($t['type'] === 'in') : ?>	
 				<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
-				<tr class="<?= $t['type']; ?>">
+				<tr class="<?=$t['type'];?>">
 					<td class="inAux"><?= $moneyFormat; ?></td>
 					<td><?= $t['date']; ?></td>
 					<td><?= $t['category']; ?></td>
@@ -117,7 +119,7 @@
 		<?php foreach ($transactionList as $t) : ?>
 			<?php if ($t['type'] === 'out') : ?>	
 				<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
-				<tr class="<?= $t['type']; ?>">
+				<tr class="<?=$t['type'];?>">
 					<td class="outAux"><?= $moneyFormat; ?></td>
 					<td><?= $t['date']; ?></td>
 					<td><?= $t['category']; ?></td>
@@ -135,18 +137,17 @@
 		</table>
 	</div>
 	<div class="botleft">
-		<div class="amounts midwid">
-			<span>RECEITAS</span>
-			<span class="totalr"></span>
-		</div>
-		<div class="amounts midwid">
-			<span>DESPESAS</span>
-			<span class="totald"></span>
+		<div class="amounts">
+			<span class="rec">RECEITAS</span>
+			<span class="rec totalr"></span>
+			<div id="chartContainerRec" style="height: 280px; width: 100%;"></div>
 		</div>
 	</div>
 	<div class="botright">
 		<div class="amounts">
-			<span>Por categoria</span>
+			<span class="des">DESPESAS</span>
+			<span class="des totald"></span>
+			<div id="chartContainerDes" style="height: 280px; width: 100%;"></div>
 		</div>
 	</div>
 </div>
@@ -157,5 +158,34 @@
 	</div>
 
 <?php endif; ?>
+
+<script>
+window.onload = function () {
+
+var recData = <?=json_encode($sumcategoryRec)?>;
+var desData = <?=json_encode($sumcategoryDes)?>;
+
+var optionsRec = {
+	animationEnabled: true,
+	data: [{
+		type: "doughnut",
+		innerRadius: "40%",
+		dataPoints: recData
+	}]
+};
+
+var optionsDes = {
+	animationEnabled: true,
+	data: [{
+		type: "doughnut",
+		innerRadius: "40%",
+		dataPoints: desData
+	}]
+};
+
+$("#chartContainerRec").CanvasJSChart(optionsRec);
+$("#chartContainerDes").CanvasJSChart(optionsDes);
+}
+</script>
 
 <?php include(FOOTER_TEMPLATE); ?>

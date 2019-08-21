@@ -7,7 +7,7 @@
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
 
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+<div class="modal fade" id="delete-acc-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -41,7 +41,7 @@
 					<i class="far fa-arrow-alt-circle-up"></i>
 				</a>
 				<i class="far fa-edit"></i>
-				<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$acc['_id'] ?>" data-ident="<?= $acc['name'];?>">
+				<a href="#" data-toggle="modal" data-target="#delete-acc-modal" data-id="<?=$acc['_id'] ?>" data-ident="<?= $acc['name'];?>">
 					<i class="far fa-trash-alt"></i>
 				</a>
 			</div>

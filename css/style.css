@@ -45,7 +45,6 @@ main {
 
 .botleft {
     grid-area: botleft;
-    display: flex;
 }
 
 .botright {
@@ -58,10 +57,23 @@ main {
 
 .amounts {
     text-align: center;
+    border: solid 1px black;
 }
 
 .amounts span {
     display: block;
+}
+
+span.rec {
+    color: green;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+span.des {
+    color: red;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
 h1 {

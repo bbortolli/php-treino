@@ -16,6 +16,22 @@ $(document).ready(function() {
         })
     })
 
+    $('#delete-acc-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var value = button.data('ident')
+        
+        var modal = $(this)
+        modal.find('.modal-title').text('Excluir ' + value)
+        //modal.find('#confirm').attr('href', '../transactions/delete.php?id=' + id);
+        $('#confirm').on('click', function() {
+            $.get("../accounts/delete.php?id=" + id, function(data) {
+                console.log(account)
+                window.location.assign('/accounts/')
+            })
+        })
+    })
+
     $('#add-modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
     });
@@ -75,6 +91,7 @@ $(document).ready(function() {
         totalOut -= value
         
     })
-    $('span[class=totalr]').text('R$ ' + totalIn);
-    $('span[class=totald]').text('R$ ' + totalOut);
+    $('.totalr').text('R$ ' + totalIn);
+    $('.totald').text('R$ ' + totalOut);
+
 });
