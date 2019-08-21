@@ -6,11 +6,10 @@
 
 body {
     display: grid;
-    grid-template-rows: 60px 1fr 10vh;
+    grid-template-rows: 60px 1fr;
     grid-template-areas: 
         "header"
-        "main"
-        "footer"
+        "main";
 }
 
 .header {
@@ -36,10 +35,33 @@ main {
 
 .leftgrid {
     grid-area: leftgrid;
+    overflow-y: auto;
 }
 
 .rightgrid {
     grid-area: rightgrid;
+    overflow-y: auto;
+}
+
+.botleft {
+    grid-area: botleft;
+    display: flex;
+}
+
+.botright {
+    grid-area: botright;
+}
+
+.midwid {
+    width: 50%;
+}
+
+.amounts {
+    text-align: center;
+}
+
+.amounts span {
+    display: block;
 }
 
 h1 {
@@ -279,11 +301,12 @@ tr.out, tr.out:hover td {
 }
 
 .content-items {
-    margin: 50px 10px;
+    margin: 20px 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 306px 1fr;
+    grid-template-rows: 1fr 306px;
     grid-template-areas: 
+        "botleft botright"
         "leftgrid rightgrid";
     grid-gap: 10px;
 }
@@ -331,6 +354,5 @@ footer {
     position: fixed;
     bottom: 0;
     background-color: #999;
-    grid-area: footer;
     width: 100%;
 }

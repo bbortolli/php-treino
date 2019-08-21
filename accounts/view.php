@@ -75,67 +75,78 @@
 
 <div class="content-items">
 	<div class="leftgrid">
-		<div class="gridcontrol scrolly">
-			<?php if ($transactionList) : ?>	
-			<table class="table">
-				<tr>
-					<th>Value</th>
-					<th>Date</th>
-					<th>Category</th>
-					<th>Description</th>
-					<th>Options</th>
+		<?php if ($transactionList) : ?>	
+		<table class="table">
+			<tr>
+				<th>Value</th>
+				<th>Date</th>
+				<th>Category</th>
+				<th>Description</th>
+				<th>Options</th>
+			</tr>
+		<?php foreach ($transactionList as $t) : ?>
+			<?php if ($t['type'] === 'in') : ?>	
+				<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
+				<tr class="<?= $t['type']; ?>">
+					<td class="inAux"><?= $moneyFormat; ?></td>
+					<td><?= $t['date']; ?></td>
+					<td><?= $t['category']; ?></td>
+					<td><?= $t['description']; ?></td>
+					<td class="text-right">
+						<i class="far fa-edit">
+						<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
+							<i class="far fa-trash-alt"></i>
+						</a>
+					</td>
 				</tr>
-			<?php foreach ($transactionList as $t) : ?>
-				<?php if ($t['type'] === 'in') : ?>	
-					<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
-					<tr class="<?= $t['type']; ?>">
-						<td><?= $moneyFormat; ?></td>
-						<td><?= $t['date']; ?></td>
-						<td><?= $t['category']; ?></td>
-						<td><?= $t['description']; ?></td>
-						<td class="text-right">
-							<i class="far fa-edit">
-							<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
-								<i class="far fa-trash-alt"></i>
-							</a>
-						</td>
-					</tr>
-				<?php endif; ?>
-			<?php endforeach; ?>
 			<?php endif; ?>
-			</table>
-		</div>
+		<?php endforeach; ?>
+		<?php endif; ?>
+		</table>
 	</div>
 	<div class="rightgrid">
-		<div class="gridcontrol scrolly">
-			<?php if ($transactionList) : ?>	
-			<table class="table">
-				<tr>
-					<th>Value</th>
-					<th>Date</th>
-					<th>Category</th>
-					<th>Description</th>
-					<th>Options</th>
+		<?php if ($transactionList) : ?>	
+		<table class="table">
+			<tr>
+				<th>Value</th>
+				<th>Date</th>
+				<th>Category</th>
+				<th>Description</th>
+				<th>Options</th>
+			</tr>
+		<?php foreach ($transactionList as $t) : ?>
+			<?php if ($t['type'] === 'out') : ?>	
+				<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
+				<tr class="<?= $t['type']; ?>">
+					<td class="outAux"><?= $moneyFormat; ?></td>
+					<td><?= $t['date']; ?></td>
+					<td><?= $t['category']; ?></td>
+					<td><?= $t['description']; ?></td>
+					<td class="text-right">
+						<i class="far fa-edit">
+						<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
+							<i class="far fa-trash-alt"></i>
+						</a>
+					</td>
 				</tr>
-			<?php foreach ($transactionList as $t) : ?>
-				<?php if ($t['type'] === 'out') : ?>	
-					<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
-					<tr class="<?= $t['type']; ?>">
-						<td><?= $moneyFormat; ?></td>
-						<td><?= $t['date']; ?></td>
-						<td><?= $t['category']; ?></td>
-						<td><?= $t['description']; ?></td>
-						<td class="text-right">
-							<i class="far fa-edit">
-							<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
-								<i class="far fa-trash-alt"></i>
-							</a>
-						</td>
-					</tr>
-				<?php endif; ?>
-			<?php endforeach; ?>
 			<?php endif; ?>
-			</table>
+		<?php endforeach; ?>
+		<?php endif; ?>
+		</table>
+	</div>
+	<div class="botleft">
+		<div class="amounts midwid">
+			<span>RECEITAS</span>
+			<span class="totalr"></span>
+		</div>
+		<div class="amounts midwid">
+			<span>DESPESAS</span>
+			<span class="totald"></span>
+		</div>
+	</div>
+	<div class="botright">
+		<div class="amounts">
+			<span>Por categoria</span>
 		</div>
 	</div>
 </div>

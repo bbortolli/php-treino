@@ -62,4 +62,19 @@ $(document).ready(function() {
             .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
             .forEach(tr => table.appendChild(tr) );
     })));
+
+    var totalIn = 0;
+    var totalOut = 0;
+    $('td[class=inAux]').each(function (i, e) {
+        value = parseFloat($(this).html())
+        totalIn += value
+        
+    })
+    $('td[class=outAux]').each(function (i, e) {
+        value = parseFloat($(this).html())
+        totalOut -= value
+        
+    })
+    $('span[class=totalr]').text('R$ ' + totalIn);
+    $('span[class=totald]').text('R$ ' + totalOut);
 });
