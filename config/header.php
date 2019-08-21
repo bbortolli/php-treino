@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <title>CRUD Treino</title>
+    <title>Controle suas contas!</title>
 </head>
 
 
 
 <body>
-    <div class="container-fluid">
-        <div class="row top-content">
-            <a class="home" href="../"><h3 class="laranja">CRUD Treino</h3></a>
+    <div class="header">
+        <div class="gridcontrol top-content">
+            <a class="home laranja" href="../">MyLLs</a>
             <ul class="menu">
                 <li class="item">
                     <div class="dropdown">
                         <button class="dropbtn">Account</button>
                         <div class="drop-content">
-                            <a href="/transactions/index.php">Transactions</a>
+                            <a href="#">Transactions</a>
                             <a href="/accounts/add.php">Add new</a>
                             <a href="/accounts/index.php">View all</a>
                         </div>

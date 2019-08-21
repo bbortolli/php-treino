@@ -1,5 +1,5 @@
     </main>
-	<footer class="container-fluid">
+	<footer>
         <p> dev por bbortolli</p>		
     </footer>	
 

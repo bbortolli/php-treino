@@ -1,9 +1,12 @@
 <?php	    
-	require_once('controller.php');	   
+	require_once('controller.php');
+	$account = getAccount();
+	if (!$account) {
+		header('location: /accounts/index.php');
+	}
 	require_once('../transactions/controller.php');
 	require_once('../categories/controller.php'); 
 	$transactionList = getAccTransactions();
-	$account = getAccount();
 	$categoryList = getAllCategories();
 ?>
 
@@ -69,28 +72,29 @@
 <div class="add-cat-btn">
 	<a href="#" data-toggle="modal" data-target="#add-modal">New</a>
 </div>
+<div class="filters">
+	<input checked="checked" class="radiofilter" id="filter-all"type="radio" name="filter" value="all">
+	<label for="filter-all">Todos</label>
+	<input class="radiofilter" id="filter-in"type="radio" name="filter" value="in">
+	<label for="filter-in">Receita</label>
+	<input class="radiofilter" id="filter-out"type="radio" name="filter" value="out">
+	<label for="filter-out">Despesa</label>
+</div>
 <div class="content-items">
 <table class="table table-hover">
-<thead>
 	<tr>
-		<th>Account</th>
 		<th>Value</th>
 		<th>Date</th>
-		<th>Type</th>
 		<th>Category</th>
 		<th>Description</th>
 		<th>Options</th>
 	</tr>
-</thead>
-<tbody>	
 <?php if ($transactionList) : ?>	
 <?php foreach ($transactionList as $t) : ?>
-	<?php $moneyFormat = 'R$ ' . number_format($t['value'], 2, ',', '.'); ?>
+	<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
 	<tr class="<?= $t['type']; ?>">
-		<td><?= $t['acc_id']; ?></td>
-		<td><?= $moneyFormat ?></td>
+		<td><?= $moneyFormat; ?></td>
 		<td><?= $t['date']; ?></td>
-		<td><?= $t['type']; ?></td>
 		<td><?= $t['category']; ?></td>
 		<td><?= $t['description']; ?></td>
 		<td class="text-right">
@@ -102,7 +106,6 @@
 	</tr>
 <?php endforeach; ?>
 <?php endif; ?>
-</tbody>
 </table>
 <?php else : ?>
 	<div class="alert alert-danger" role="alert">

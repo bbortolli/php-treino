@@ -54,7 +54,6 @@ function deleteTransaction($id = null) {
 
     if (filter_var($id, FILTER_VALIDATE_INT)) {
         $product = remove('transaction', $id);
-        header('location: /transactions');
     }
 }
 

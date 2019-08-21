@@ -25,9 +25,6 @@
 </div>
 
 <?php if ($db) : ?>
-
-<h1 class="text-center">Accounts</h1>
-<div class="separate"></div>
 <div class="content-items">
 
 <?php if ($accountList) : ?>	
@@ -40,7 +37,7 @@
 				<span><?= strtoupper($acc['name']) ?></span>
 			</div>
 			<div class="acc-opt">
-				<a href="./view.php?id=<?=$acc['_id']?>">
+				<a class="viewbtn" href="./view.php?id=<?=$acc['_id']?>">
 					<i class="far fa-arrow-alt-circle-up"></i>
 				</a>
 				<i class="far fa-edit"></i>
