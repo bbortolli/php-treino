@@ -72,41 +72,74 @@
 <div class="add-cat-btn">
 	<a href="#" data-toggle="modal" data-target="#add-modal">New</a>
 </div>
-<div class="filters">
-	<input checked="checked" class="radiofilter" id="filter-all"type="radio" name="filter" value="all">
-	<label for="filter-all">Todos</label>
-	<input class="radiofilter" id="filter-in"type="radio" name="filter" value="in">
-	<label for="filter-in">Receita</label>
-	<input class="radiofilter" id="filter-out"type="radio" name="filter" value="out">
-	<label for="filter-out">Despesa</label>
-</div>
+
 <div class="content-items">
-<table class="table table-hover">
-	<tr>
-		<th>Value</th>
-		<th>Date</th>
-		<th>Category</th>
-		<th>Description</th>
-		<th>Options</th>
-	</tr>
-<?php if ($transactionList) : ?>	
-<?php foreach ($transactionList as $t) : ?>
-	<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
-	<tr class="<?= $t['type']; ?>">
-		<td><?= $moneyFormat; ?></td>
-		<td><?= $t['date']; ?></td>
-		<td><?= $t['category']; ?></td>
-		<td><?= $t['description']; ?></td>
-		<td class="text-right">
-			<i class="far fa-edit">
-			<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
-				<i class="far fa-trash-alt"></i>
-			</a>
-		</td>
-	</tr>
-<?php endforeach; ?>
-<?php endif; ?>
-</table>
+	<div class="leftgrid">
+		<div class="gridcontrol scrolly">
+			<?php if ($transactionList) : ?>	
+			<table class="table">
+				<tr>
+					<th>Value</th>
+					<th>Date</th>
+					<th>Category</th>
+					<th>Description</th>
+					<th>Options</th>
+				</tr>
+			<?php foreach ($transactionList as $t) : ?>
+				<?php if ($t['type'] === 'in') : ?>	
+					<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
+					<tr class="<?= $t['type']; ?>">
+						<td><?= $moneyFormat; ?></td>
+						<td><?= $t['date']; ?></td>
+						<td><?= $t['category']; ?></td>
+						<td><?= $t['description']; ?></td>
+						<td class="text-right">
+							<i class="far fa-edit">
+							<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
+								<i class="far fa-trash-alt"></i>
+							</a>
+						</td>
+					</tr>
+				<?php endif; ?>
+			<?php endforeach; ?>
+			<?php endif; ?>
+			</table>
+		</div>
+	</div>
+	<div class="rightgrid">
+		<div class="gridcontrol scrolly">
+			<?php if ($transactionList) : ?>	
+			<table class="table">
+				<tr>
+					<th>Value</th>
+					<th>Date</th>
+					<th>Category</th>
+					<th>Description</th>
+					<th>Options</th>
+				</tr>
+			<?php foreach ($transactionList as $t) : ?>
+				<?php if ($t['type'] === 'out') : ?>	
+					<?php $moneyFormat = number_format($t['value'], 2, '.', ','); ?>
+					<tr class="<?= $t['type']; ?>">
+						<td><?= $moneyFormat; ?></td>
+						<td><?= $t['date']; ?></td>
+						<td><?= $t['category']; ?></td>
+						<td><?= $t['description']; ?></td>
+						<td class="text-right">
+							<i class="far fa-edit">
+							<a href="#" data-toggle="modal" data-target="#delete-modal" data-id="<?=$t['_id'] ?>" data-ident="<?= $moneyFormat;?>">
+								<i class="far fa-trash-alt"></i>
+							</a>
+						</td>
+					</tr>
+				<?php endif; ?>
+			<?php endforeach; ?>
+			<?php endif; ?>
+			</table>
+		</div>
+	</div>
+</div>
+
 <?php else : ?>
 	<div class="alert alert-danger" role="alert">
 		<p><strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!</p>

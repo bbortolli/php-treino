@@ -34,6 +34,14 @@ main {
     height: 100%;
 }
 
+.leftgrid {
+    grid-area: leftgrid;
+}
+
+.rightgrid {
+    grid-area: rightgrid;
+}
+
 h1 {
     margin-top: 10px;
 }
@@ -45,6 +53,16 @@ p {
 .top-content {
     display: flex;
     flex-direction: row;
+}
+
+.scrolly {
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+}
+
+tr, tr:hover td{
+    background: white;
 }
 
 tr.in, tr.in:hover td {
@@ -133,20 +151,6 @@ tr.out, tr.out:hover td {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-}
-
-.filters {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-}
-
-.radiofilter {
-    width: 10px;
-    justify-self: center;
-    margin-right: 5px;
-    margin-left: 5px;
 }
 
 .side {
@@ -275,12 +279,13 @@ tr.out, tr.out:hover td {
 }
 
 .content-items {
-    align-self: center;
-    width: 90%;
     margin: 50px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 306px 1fr;
+    grid-template-areas: 
+        "leftgrid rightgrid";
+    grid-gap: 10px;
 }
 
 select, .datein {
