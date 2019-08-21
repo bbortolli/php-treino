@@ -3,16 +3,12 @@ $(document).ready(function() {
         var button = $(event.relatedTarget)
         var id = button.data('id')
         var value = button.data('ident')
-        var account = $("[name='acc_id']").val()
         
         var modal = $(this)
         modal.find('.modal-title').text('Excluir ' + value)
         //modal.find('#confirm').attr('href', '../transactions/delete.php?id=' + id);
-        $('#confirm').on('click', function() {
-            $.get("../transactions/delete.php?id=" + id, function(data) {
-                console.log(account)
-                window.location.assign('/accounts/view.php?id='+account)
-            })
+        $('#confirmTr').on('click', function() {
+            console.log(button, id, value)
         })
     })
 
@@ -24,7 +20,7 @@ $(document).ready(function() {
         var modal = $(this)
         modal.find('.modal-title').text('Excluir ' + value)
         //modal.find('#confirm').attr('href', '../transactions/delete.php?id=' + id);
-        $('#confirm').on('click', function() {
+        $('#confirmAcc').on('click', function() {
             $.get("../accounts/delete.php?id=" + id, function(data) {
                 console.log(account)
                 window.location.assign('/accounts/')
@@ -50,21 +46,6 @@ $(document).ready(function() {
             window.location.assign('/accounts/view.php?id='+id)
         });
     })
-
-    $('input[type=radio][name=filter]').change(function() {
-        if (this.value == 'in') {
-            $('tr[class=in]').show()
-            $('tr[class=out]').hide()
-        }
-        else if (this.value == 'out') {
-            $('tr[class=in]').hide()
-            $('tr[class=out]').show()
-        }
-        else {
-            $('tr[class=in]').show()
-            $('tr[class=out]').show()
-        }
-    });
 
     const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
