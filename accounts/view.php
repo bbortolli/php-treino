@@ -25,7 +25,7 @@
         Deseja realmente excluir este item?
       </div>
       <div class="modal-footer">
-        <a id="confirmTr" class="btn btn-primary" href="#">Sim</a>
+        <a id="confirmDelTrans" class="btn btn-primary" href="#">Sim</a>
         <a id="cancel" class="btn btn-default" data-dismiss="modal">N&atilde;o</a>
       </div>
     </div>
@@ -61,7 +61,7 @@
 		</form>
       </div>
       <div class="modal-footer">
-        <a id="confirm" class="btn btn-primary cadd" href="#">Confirmar</a>
+        <a id="confirmAddTrans" class="btn btn-primary tadd" href="#">Confirmar</a>
         <a id="cancel" class="btn btn-default" data-dismiss="modal">Cancelar</a>
       </div>
     </div>
